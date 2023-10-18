@@ -1,0 +1,23 @@
+#lang sicp
+(define (fact-rec n)
+  (if (= n 1)
+      1
+      (* n (fact-rec (dec n)))))
+(fact-rec 10)
+
+(define (fact-iter n)
+  (define (iter counter max-counter product)
+    (if (> counter max-counter)
+        product
+        (iter (inc counter) max-counter (* counter product))))
+  (iter 1 n 1))
+(fact-iter 10)
+
+(define (add-rec a b)
+  (if (= b 0)
+      a
+      (inc (add-rec a (dec b)))))
+
+(define (add-iter a b)
+  (define (iter a b)
+    (

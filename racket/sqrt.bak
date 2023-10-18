@@ -1,0 +1,13 @@
+#lang sicp
+(define (sqrt-iter x guess)
+  (if (good-enough? x guess)
+      guess
+      (improve x guess)))
+(define (good-enough? x guess)
+  (< 0.001
+     (abs (- (x (square guess))))))
+(define (square x) (* x x))
+(define (average x y) (/ (+ x y)
+                         2))
+(define (improve x guess)
+  (average x (/ guess x)))
